@@ -22,7 +22,7 @@ RUN wget -q -O - https://storage.googleapis.com/golang/go${GO_BOOTSTRAP_VERSION}
     wget -q -O - https://storage.googleapis.com/golang/go${GO_TARGET_VERSION}.src.tar.gz \
       | tar -C /opt -xz  && \
     cd /opt/go/src  && \
-    GOROOT_BOOTSTRAP=/opt/go${GO_BOOTSTRAP_VERSION} ./make.bash
+    GOROOT_BOOTSTRAP=/opt/go${GO_BOOTSTRAP_VERSION} ./make.bash  && \
     rm -rf /opt/go${GO_BOOTSTRAP_VERSION}
 
 ENV GOROOT /opt/go
