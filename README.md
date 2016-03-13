@@ -1,6 +1,6 @@
 docker-golang
 ==
-Install [golang](https://golang.org), based on [docker-library/golang/1.6/alpine/Dockerfile](https://github.com/docker-library/golang/blob/3cdd85183c0f3f6608588166410d24260cd8cb2f/1.6/alpine/Dockerfile) and [armhf/alpine](https://hub.docker.com/r/armhf/alpine/)
+Run [golang](https://golang.org) on [armhf/alpine](https://hub.docker.com/r/armhf/alpine/). Based on [docker-library/golang/1.6/alpine/Dockerfile](https://github.com/docker-library/golang/blob/3cdd85183c0f3f6608588166410d24260cd8cb2f/1.6/alpine/Dockerfile)
 
 
 Setup docker image
