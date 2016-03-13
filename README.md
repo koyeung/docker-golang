@@ -1,10 +1,6 @@
 docker-golang
 ==
-Install [golang](https://golang.org). If target platform is not found from [golang official docker repository](https://hub.docker.com/_/golang/), you may  modify the base image and build it yourself.
-
-* reference:
-  - [Installing Go from source](https://golang.org/doc/install/source)
-  - [caterpillar/rpi-golang](https://hub.docker.com/r/caterpillar/rpi-golang/)
+Install [golang](https://golang.org), based on [docker-library/golang/1.6/alpine/Dockerfile](https://github.com/docker-library/golang/blob/3cdd85183c0f3f6608588166410d24260cd8cb2f/1.6/alpine/Dockerfile)
 
 Setup docker image
 ==
