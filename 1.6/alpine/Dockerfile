@@ -1,12 +1,17 @@
-FROM armhf/alpine:3.3
+FROM armhf/alpine:3.4
 
-ENV GOLANG_VERSION 1.6
+ENV GOLANG_VERSION 1.6.4
 ENV GOLANG_SRC_URL https://golang.org/dl/go$GOLANG_VERSION.src.tar.gz
-ENV GOLANG_SRC_SHA256 a96cce8ce43a9bf9b2a4c7d470bc7ee0cb00410da815980681c8353218dcf146
+ENV GOLANG_SRC_SHA256 8796cc48217b59595832aa9de6db45f58706dae68c9c7fbbd78c9fdbe3cd9032
 
 ENV GOLANG_BOOTSTRAP_VERSION 1.4.3
 ENV GOLANG_BOOTSTRAP_URL https://golang.org/dl/go$GOLANG_BOOTSTRAP_VERSION.src.tar.gz
 ENV GOLANG_BOOTSTRAP_SHA1 486db10dc571a55c8d795365070f66d343458c48
+
+# https://golang.org/issue/14851
+COPY no-pic.patch /
+# https://golang.org/issue/17847
+COPY 17847.patch /
 
 RUN set -ex \
 	&& apk add --no-cache --virtual .build-deps \
@@ -30,8 +35,11 @@ RUN set -ex \
 	&& tar -C /usr/local -xzf golang.tar.gz \
 	&& rm golang.tar.gz \
 	&& cd /usr/local/go/src \
+        && patch -p2 -i /no-pic.patch \
+        && patch -p2 -i /17847.patch \
 	&& ./make.bash \
 	\
+        && rm -rf /*.patch \
 	&& rm -rf /usr/local/bootstrap /usr/local/go/pkg/bootstrap \
 	&& apk del .build-deps
 
