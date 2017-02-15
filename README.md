@@ -1,6 +1,6 @@
 docker-golang
 ==
-Run [golang](https://golang.org) on [armhf/alpine](https://hub.docker.com/r/armhf/alpine/). Based on [docker-library/golang](https://github.com/docker-library/golang)
+Run [golang](https://golang.org) on [armhf/alpine](https://hub.docker.com/r/armhf/alpine/). `1.6` is Based on [docker-library/golang](https://github.com/docker-library/golang). `alpine-*` are simple wrapping of `go` bundled with the alpine OS.
 
 
 Setup docker image
