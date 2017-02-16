@@ -1,6 +1,8 @@
 FROM armhf/alpine:3.5
 
-RUN apk add --no-cache go
+RUN apk add --no-cache \
+            musl-dev \
+            go
 
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
